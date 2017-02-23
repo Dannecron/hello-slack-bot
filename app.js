@@ -30,7 +30,7 @@ app.use(function (err, req, res, next) {
   res.status(400).send(err.message);
 });
 
-var server = http.createServer(options, app);  
+var server = https.createServer(options, app);  
 var io = require('socket.io').listen(server);
 server.listen(443);
 
