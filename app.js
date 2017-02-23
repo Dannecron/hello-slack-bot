@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var https = require('https');
 var fs = require('fs');
 
-var zmrBot = require('./bot.js');
+var helloBot = require('./hello.js');
 
 var app = express();
 var sslPath = '/etc/letsencrypt/live/sao.twilightparadox.com/';
@@ -19,9 +19,9 @@ var options = {
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // test route
-app.get('/', function (req, res) { res.status(200).send('Hello world!') });
+app.get('/', function (req, res) { res.status(200).send('it works!') });
 
-app.post('/hello', zmrBot);
+app.post('/hello', helloBot);
 
 // error handler
 app.use(function (err, req, res, next) {
