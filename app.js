@@ -8,7 +8,6 @@ var fs = require('fs');
 var zmrBot = require('./bot.js');
 
 var app = express();
-var port = process.env.PORT || 3000;
 var sslPath = '/etc/letsencrypt/live/sao.twilightparadox.com/';
 
 var options = {  
@@ -32,8 +31,6 @@ app.use(function (err, req, res, next) {
 
 var server = https.createServer(options, app);  
 var io = require('socket.io').listen(server);
-server.listen(443);
-
-app.listen(port, function () {
-  console.log('Slack bot listening on port ' + port);
+server.listen(443, function () {
+  console.log('start server. Listening for port 443')
 });
