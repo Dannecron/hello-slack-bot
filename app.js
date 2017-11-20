@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+require('dotenv').config();
 var express = require('express');
 var bodyParser = require('body-parser');
 var https = require('https');
@@ -8,7 +9,7 @@ var fs = require('fs');
 var helloBot = require('./hello.js');
 
 var app = express();
-var sslPath = '/etc/letsencrypt/live/sao.twilightparadox.com/';
+var sslPath = process.env.SSL_CERT_PATH;
 
 var options = {  
     key: fs.readFileSync(sslPath + 'privkey.pem'),
