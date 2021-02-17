@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 
 require('dotenv').config();
-var express = require('express');
-var bodyParser = require('body-parser');
-var https = require('https');
-var fs = require('fs');
+const express = require('express');
+const bodyParser = require('body-parser');
+const https = require('https');
+const fs = require('fs');
 
-var helloBot = require('./hello.js');
+const helloBot = require('./hello.js');
 
-var app = express();
-var sslPath = process.env.SSL_CERT_PATH;
+const app = express();
+const sslPath = process.env.SSL_CERT_PATH;
 
-var options = {  
+const options = {
     key: fs.readFileSync(sslPath + 'privkey.pem'),
     cert: fs.readFileSync(sslPath + 'fullchain.pem')
 };
@@ -30,8 +30,8 @@ app.use(function (err, req, res, next) {
   res.status(400).send(err.message);
 });
 
-var server = https.createServer(options, app);  
-var io = require('socket.io').listen(server);
+const server = https.createServer(options, app);
+
 server.listen(443, function () {
   console.log('start server. Listening for port 443')
 });
