@@ -10,9 +10,9 @@
   "author": "dannc",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.20.3",
+    "body-parser": "^1.20.4",
     "dotenv": "^4.0.0",
-    "express": "^4.21.2",
+    "express": "^4.22.1",
     "requestify": "^0.2.5"
   }
 }
